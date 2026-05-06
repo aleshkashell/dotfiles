@@ -26,3 +26,8 @@ unset rc
 ### bling.sh source start
 test -f /usr/share/ublue-os/bling/bling.sh && source /usr/share/ublue-os/bling/bling.sh
 ### bling.sh source end
+eval "$(fzf --bash)"
+
+# Aliases
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'

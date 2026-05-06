@@ -1,5 +1,9 @@
 auth="/home/aleshka/.config/yandex-disk/passwd"
+{{- if eq .chezmoi.hostname "stronghold" }}
+dir="/var/home/aleshka/ssd/Yandex.Disk"
+{{- else }}
 dir="/var/home/aleshka/Yandex.Disk"
+{{- end }}
 proxy="no"
 {{- if .yandex.limitedSync }}
 exclude-dirs="Фотоархив,Фотокамера,Загрузки,Google takeout,backups,software,Сваьба,Games"
