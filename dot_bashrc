@@ -23,11 +23,33 @@ if [ -d ~/.bashrc.d ]; then
     done
 fi
 unset rc
+### preexec
+alias install_preexec='curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o ~/.bash-preexec.sh'
+[[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 ### bling.sh source start
-test -f /usr/share/ublue-os/bling/bling.sh && source /usr/share/ublue-os/bling/bling.sh
+# test -f /usr/share/ublue-os/bling/bling.sh && source /usr/share/ublue-os/bling/bling.sh
+[ "$(command -v atuin)" ] && eval "$(atuin init bash)"
+[ "$(command -v zoxide)" ] && eval "$(zoxide init bash)"
 ### bling.sh source end
-eval "$(fzf --bash)"
+[ "$(command -v fzf)" ] && eval "$(fzf --bash)"
 
 # Aliases
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
+# ls aliases
+if [ "$(command -v eza)" ]; then
+    alias ll='eza -l --icons=auto --group-directories-first'
+    alias l.='eza -d .*'
+    alias ls='eza'
+    alias l1='eza -1'
+fi
+
+# ugrep for grep
+if [ "$(command -v ug)" ]; then
+    alias grep='ug'
+    alias egrep='ug -E'
+    alias fgrep='ug -F'
+    alias xzgrep='ug -z'
+    alias xzegrep='ug -zE'
+    alias xzfgrep='ug -zF'
+fi
