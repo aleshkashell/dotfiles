@@ -31,6 +31,16 @@
             "package_path": "",
             "pinned": false
         },
+        "/home/aleshka/.local/bin/eza": {
+            "path": "/home/aleshka/.local/bin/eza",
+            "remote_name": "eza",
+            "version": "v0.23.4",
+            "hash": "ef1f85a17c0e6db8df26480740dcdc92a8a0acb7c25d560a01bfc2c9c7d51021",
+            "url": "github.com/eza-community/eza",
+            "provider": "github",
+            "package_path": "./eza",
+            "pinned": false
+        },
         "/home/aleshka/.local/bin/zoxide": {
             "path": "/home/aleshka/.local/bin/zoxide",
             "remote_name": "zoxide",
