@@ -24,7 +24,6 @@ if [ -d ~/.bashrc.d ]; then
 fi
 unset rc
 ### preexec
-alias install_preexec='curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o ~/.bash-preexec.sh'
 [[ -f ~/.bash-preexec.sh ]] && source ~/.bash-preexec.sh
 ### bling.sh source start
 # test -f /usr/share/ublue-os/bling/bling.sh && source /usr/share/ublue-os/bling/bling.sh
@@ -53,3 +52,16 @@ if [ "$(command -v ug)" ]; then
     alias xzegrep='ug -zE'
     alias xzfgrep='ug -zF'
 fi
+
+# Help functions
+setup_nerdctl () {
+  url=$(curl -s https://api.github.com/repos/containerd/nerdctl/releases/latest | grep "browser_download_url.*nerdctl-full.*-linux-amd64.tar.gz" | grep -o 'https://[^"]*')
+  echo "Latest release: $url"
+  curl -LSsf $url | tar xzv -C $HOME/.local
+  echo "If it's a new installation don't forget to run 'containerd-rootless-setuptool.sh install'"
+}
+
+setup_preexec () {
+  curl https://raw.githubusercontent.com/rcaloras/bash-preexec/master/bash-preexec.sh -o ~/.bash-preexec.sh
+}
+
